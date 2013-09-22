@@ -5,13 +5,26 @@ When(/^fill in survey information$/) do
 end
 
 When(/^I click submit$/) do
-  click_on 'Create Survey'
+
 end
 
-Then(/^I should see survey create message$/) do
-  page.should have_content 'Survey was successfully created.'
+When(/^I click "(.*?)"$/) do |submit_btn|
+  click_on submit_btn
+end
+
+Then(/^I should see "(.*?)"$/) do |message|
+  page.should have_content message
 end
 
 Then(/^survey should be added$/) do
   Survey.count.should == 1
+end
+
+When(/^update survey information$/) do
+  fill_in 'survey_title', :with => 'updated title'
+  fill_in 'survey_description', :with => 'updated description'
+end
+
+When(/^I visit survey list page$/) do
+  visit surveys_path
 end

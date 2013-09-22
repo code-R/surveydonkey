@@ -3,6 +3,7 @@ ruby '1.9.3'
 
 gem 'cancan'
 gem 'devise'
+gem 'draper'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'rails', '3.2.14'
