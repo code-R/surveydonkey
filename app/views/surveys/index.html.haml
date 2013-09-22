@@ -11,8 +11,8 @@
       %td= survey.title_link
       %td= survey.truncated_description
       %td
-        = link_to 'Edit', edit_survey_path(survey), class: %w(btn btn-mini)
-        = link_to 'Destroy', survey, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: %w(btn btn-mini btn-danger)
+        = survey.edit_link
+        = survey.destroy_link
 
 %br
 

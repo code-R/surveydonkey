@@ -8,4 +8,12 @@ class SurveyDecorator < Draper::Decorator
   def truncated_description
     h.truncate(object.description)
   end
+
+  def edit_link
+    h.link_to 'Edit', h.edit_survey_path(object), class: %w(btn btn-mini)
+  end
+
+  def destroy_link
+    h.link_to 'Destroy', object, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: %w(btn btn-mini btn-danger)
+  end
 end
