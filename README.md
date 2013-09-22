@@ -22,7 +22,7 @@ One does not simply walk into Mordor
     * See the list of surveys
     * Sign up to be a user (username & email are required, and email should be verified)
     * Login
-￼￼￼￼￼￼￼￼￼￼￼
+
 ## Types of Questions
   * Essay question - answer with a text area
   * Numeric question - answer with a number
