@@ -1,11 +1,23 @@
 !!!
 %html
   %head
-    %title SurveyDonkey
-    = stylesheet_link_tag    "application", :media => "all"
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : 'Survey Donkey'
+    %meta{content: content_for?(:description) ? yield(:description) : 'Survey Donkey', name: 'description'}/
+    = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    = yield(:head)
   %body
-    .flash
-      = flash[:alert]
-    = yield
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          = render 'layouts/menu'
+
+    .container
+      .content
+        .row
+          .span12
+            = bootstrap_flash
+            = yield
+        %footer
