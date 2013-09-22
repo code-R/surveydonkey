@@ -1,9 +1,21 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 
+gem 'devise'
+gem 'haml-rails'
 gem 'jquery-rails'
 gem 'rails', '3.2.14'
 gem 'sqlite3'
+
+group :development, :test do
+  gem 'pry'
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
+  gem 'quiet_assets'
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
