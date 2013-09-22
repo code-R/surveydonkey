@@ -33,3 +33,13 @@ end
 Then(/^I should have acess to survey create page$/) do
   page.current_path.should == new_survey_path
 end
+
+Then(/^I should not see edit and destroy links$/) do
+  page.should_not have_selector(:link_or_button, 'Edit')
+  page.should_not have_selector(:link_or_button, 'Destroy')
+end
+
+Then(/^I should see edit and destroy links$/) do
+  page.should have_selector(:link_or_button, 'Edit')
+  page.should have_selector(:link_or_button, 'Destroy')
+end

@@ -22,3 +22,15 @@ Feature: User Authorization
     When I login as admin
     And I visit survey create page
     Then I should have acess to survey create page
+
+  Scenario: User with normal role
+    Given There is a survey
+    When I sign in with valid email and password
+    And I visit survey list page
+    Then I should not see edit and destroy links
+
+  Scenario: User with admin role
+    Given There is a survey
+    When I login as admin
+    And I visit survey list page
+    Then I should see edit and destroy links

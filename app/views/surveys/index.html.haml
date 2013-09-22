@@ -4,15 +4,18 @@
   %tr
     %th Title
     %th Description
-    %th Actions
+    - if can? :manage, Survey
+      %th Actions
 
   - @surveys.each do |survey|
     %tr
       %td= survey.title_link
       %td= survey.truncated_description
       %td
-        = survey.edit_link
-        = survey.destroy_link
+        - if can? :update, survey
+          = survey.edit_link
+        - if can? :destroy, survey
+          = survey.destroy_link
 
 %br
 
