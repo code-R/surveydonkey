@@ -6,10 +6,10 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'rails', '3.2.14'
 gem 'simple_form'
-gem 'sqlite3'
 
 group :development, :test do
   gem 'pry'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -33,4 +33,9 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
