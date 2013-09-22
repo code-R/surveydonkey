@@ -5,6 +5,7 @@ gem 'devise'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'rails', '3.2.14'
+gem 'simple_form'
 gem 'sqlite3'
 
 group :development, :test do
