@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 
+gem 'cancan'
 gem 'devise'
 gem 'haml-rails'
 gem 'jquery-rails'
