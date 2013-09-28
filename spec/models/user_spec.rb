@@ -80,7 +80,7 @@ describe User do
       user.should_not be_admin
     end
 
-    it "should be false when role is normal" do
+    it "should be true when role is admin" do
       admin = FactoryGirl.create(:user, role: 'admin')
       admin.should be_admin
     end

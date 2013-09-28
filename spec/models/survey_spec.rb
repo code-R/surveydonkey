@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 describe Survey do
+  subject { Survey.new }
   context "Accesible" do
-    subject { Survey.new }
-
     accesible_attributes = %w(description title)
 
     accesible_attributes.each do |attr|

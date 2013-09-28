@@ -7,7 +7,7 @@ Feature: User Authentication
     Given I am not logged in
 
   Scenario: User is not allowed to sign in
-    Given There is no user with email
+    Given There is no user
     When I sign in with valid email and password
     Then I see an error message
     And I should see invalid message

@@ -19,4 +19,5 @@
 
 %br
 
-= link_to 'New Survey', new_survey_path, class: %w(btn btn-primary)
+- if can? :create, Survey
+  = link_to 'New Survey', new_survey_path, class: %w(btn btn-primary)

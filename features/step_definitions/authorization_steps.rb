@@ -43,3 +43,11 @@ Then(/^I should see edit and destroy links$/) do
   page.should have_selector(:link_or_button, 'Edit')
   page.should have_selector(:link_or_button, 'Destroy')
 end
+
+Given(/^I visit home page$/) do
+  visit root_path
+end
+
+Then(/^I should not see add survey link$/) do
+  page.should_not have_content "New Survey"
+end

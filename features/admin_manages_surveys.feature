@@ -1,12 +1,12 @@
-Feature: Admin manage surveys
+Feature: Survey Management
   In order to participate in surveys
-  An admin
-  Should manage surveys
+  As a User
+  Admin should be able to manage surveys
 
   Background:
     Given I login as admin
 
-  Scenario: Admin creates survey
+  Scenario: Admin adds a survey
     When I visit survey create page
     And fill in survey information
     And I click "Create Survey"
