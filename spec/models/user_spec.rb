@@ -4,13 +4,13 @@ describe User do
   context "Accesible" do
     subject { User.new }
 
-    accesible_attributes = %w(email password password_confirmation remember_me role)
+    accessible_attributes = %w(email password password_confirmation remember_me role)
 
-    accesible_attributes.each do |attr|
+    accessible_attributes.each do |attr|
       it { should be_accessible attr }
     end
 
-    protected_attributes = User.new.attributes.keys - accesible_attributes
+    protected_attributes = User.new.attributes.keys - accessible_attributes
 
     protected_attributes.each do |attr|
       it { should_not be_accessible attr }

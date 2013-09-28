@@ -15,7 +15,7 @@ Feature: Survey Management
 
   Scenario: Admin updates survey
     Given There is a survey
-    When I visit survey page
+    When I visit survey page as admin
     And I click "Edit"
     And update survey information
     And I click "Update Survey"

@@ -4,6 +4,7 @@ Given(/^There is a confirmed user$/) do
 end
 
 Given(/^There is a survey$/) do
+  Survey.destroy_all
   @survey = FactoryGirl.create(:survey)
 end
 
@@ -51,3 +52,11 @@ end
 Then(/^I should not see add survey link$/) do
   page.should_not have_content "New Survey"
 end
+
+Then(/^I should not see list of Questions$/) do
+  question_description = Question.last.description
+
+  page.should_not have_css('#questions-table')
+  page.should_not have_content question_description
+end
+

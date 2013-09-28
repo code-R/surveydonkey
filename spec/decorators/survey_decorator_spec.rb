@@ -6,7 +6,7 @@ describe SurveyDecorator do
 
   context "#title_link" do
     it "should return title link" do
-      decorated_survey.title_link.should == "<a href=\"/surveys/1\">sample survey</a>"
+      decorated_survey.title_link.should == "<a href=\"/surveys/#{survey.id}\">sample survey</a>"
     end
   end
 
@@ -24,13 +24,13 @@ describe SurveyDecorator do
 
   context "#edit_link" do
     it "should return edit link" do
-      decorated_survey.edit_link.should == "<a href=\"/surveys/1/edit\" class=\"btn btn-mini\">Edit</a>"
+      decorated_survey.edit_link.should == "<a href=\"/surveys/#{survey.id}/edit\" class=\"btn btn-mini\">Edit</a>"
     end
   end
 
   context "#destroy_link" do
     it "should return destroy link" do
-      decorated_survey.destroy_link.should == "<a href=\"/surveys/1\" class=\"btn btn-mini btn-danger\" data-confirm=\"Are you sure?\" data-method=\"delete\" rel=\"nofollow\">Destroy</a>"
+      decorated_survey.destroy_link.should == "<a href=\"/surveys/#{survey.id}\" class=\"btn btn-mini btn-danger\" data-confirm=\"Are you sure?\" data-method=\"delete\" rel=\"nofollow\">Destroy</a>"
     end
   end
 end

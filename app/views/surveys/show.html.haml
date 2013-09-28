@@ -7,10 +7,32 @@
   %b Description:
   = @survey.description
 
-= link_to 'Edit', edit_survey_path(@survey)
-\|
+- if can? :manage, Survey
+  = @survey.edit_link
+  \|
+  = @survey.destroy_link
+  \|
+
 = link_to 'Back', surveys_path
 
 - if can? :manage, Question
   \|
   = link_to 'Add Question', new_survey_question_path(@survey)
+
+  %h3 Questions
+
+  %table#questions-table.table.table-striped
+    %tr
+      %th Description
+      %th Type
+      %th Actions
+
+    - @survey.questions.each_with_index do |question, index|
+      %tr
+        %td
+          = "#{index + 1}) #{question.description}"
+        %td
+          = question.type
+        %td
+          = link_to 'Edit', edit_survey_question_path(@survey, question), class: %w(btn btn-mini)
+          = link_to 'Destroy', question.becomes(Question), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: %w(btn btn-mini btn-danger)

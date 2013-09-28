@@ -3,13 +3,13 @@ require 'spec_helper'
 describe Survey do
   subject { Survey.new }
   context "Accesible" do
-    accesible_attributes = %w(description title)
+    accessible_attributes = %w(description title)
 
-    accesible_attributes.each do |attr|
+    accessible_attributes.each do |attr|
       it { should be_accessible attr }
     end
 
-    protected_attributes = Survey.new.attributes.keys - accesible_attributes
+    protected_attributes = Survey.new.attributes.keys - accessible_attributes
 
     protected_attributes.each do |attr|
       it { should_not be_accessible attr }

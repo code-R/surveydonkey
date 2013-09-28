@@ -3,7 +3,7 @@
 = simple_form_for([@survey, @question]) do |f|
   .form-inputs
     = f.input :description
-    = f.select :type, Question::TYPES
+    = f.select :humanized_question_type, Question::TYPES
     = f.hidden_field :survey_id
 
   .form-actions

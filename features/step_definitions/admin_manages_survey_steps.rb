@@ -4,10 +4,6 @@ When(/^fill in survey information$/) do
   fill_in 'survey_description', :with => 'foo bar blah blah'
 end
 
-When(/^I click submit$/) do
-
-end
-
 When(/^I click "(.*?)"$/) do |submit_btn|
   click_on submit_btn
 end

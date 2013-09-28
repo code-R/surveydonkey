@@ -9,3 +9,7 @@
 admin = User.new(email: 'admin@surveydonkey.com', password: 'qwerty123', role: 'admin')
 admin.skip_confirmation!
 admin.save
+
+admin = User.new(email: 'normal@surveydonkey.com', password: 'qwerty123')
+admin.skip_confirmation!
+admin.save

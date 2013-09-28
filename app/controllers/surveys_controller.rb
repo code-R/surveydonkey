@@ -16,7 +16,7 @@ class SurveysController < ApplicationController
   # GET /surveys/1
   # GET /surveys/1.json
   def show
-    @survey = Survey.find(params[:id])
+    @survey = Survey.find(params[:id]).decorate
 
     respond_to do |format|
       format.html # show.html.erb
