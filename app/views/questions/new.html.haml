@@ -4,6 +4,7 @@
   .form-inputs
     = f.input :description
     = f.select :type, Question::TYPES
+    = f.hidden_field :survey_id
 
   .form-actions
     = f.button :submit

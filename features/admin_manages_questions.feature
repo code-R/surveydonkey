@@ -12,4 +12,10 @@ Feature: Manage Questions on a Survey
     And I click "Add Question"
     And I fill in Question details
     And I click "Create Question"
-    Then I should see "Question was successfully created."
+    Then I should see "Question was successfully added."
+
+  Scenario: Admin adds a date question to a survey
+    When I visit survey page
+    And I click "Add Question"
+    And I click "Create Question"
+    Then I should see "can't be blank"
