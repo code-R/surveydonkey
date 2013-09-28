@@ -1,6 +1,6 @@
 When(/^I fill in Question details$/) do
-  fill_in 'question_description', :with => 'first question'
-  select('date', :from => 'question_humanized_question_type')
+  fill_in 'question_description', with: 'first question'
+  select('date', from: 'question_humanized_question_type')
 end
 
 When(/^I visit survey page as admin$/) do
@@ -36,4 +36,13 @@ end
 
 Then(/^I should go to question edit page$/) do
   page.current_path == 'edit'
+end
+
+When(/^I visit question edit page$/) do
+  question = @survey.questions.first
+  visit edit_survey_question_path(@survey, question)
+end
+
+When(/^I fill in question info$/) do
+  fill_in 'question_description', with: 'question updated'
 end

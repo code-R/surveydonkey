@@ -1,8 +1,8 @@
 class QuestionsController < ApplicationController
   load_and_authorize_resource
 
-  before_filter :fetch_survey, only: [:new, :create, :edit]
-  before_filter :fetch_question, only: [:edit, :destroy]
+  before_filter :fetch_survey, only: [:new, :create, :edit, :update]
+  before_filter :fetch_question, only: [:edit, :destroy, :update]
 
   def new
     @survey   = Survey.find params[:survey_id]
@@ -21,6 +21,14 @@ class QuestionsController < ApplicationController
 
   def edit
 
+  end
+
+  def update
+    if @question.update_attributes(params[:question])
+      redirect_to @survey, notice: 'Question was successfully updated.'
+    else
+      render action: 'edit'
+    end
   end
 
   def destroy

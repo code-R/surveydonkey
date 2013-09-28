@@ -37,3 +37,10 @@ Feature: Manage Questions on a Survey
     When I visit survey page as admin
     And I click edit on a question
     Then I should go to question edit page
+
+  Scenario: Admin updates a question on a given survey
+    Given Survey has some questions added
+    When I visit question edit page
+    And I fill in question info
+    And I click "Update Question"
+    Then I should see "Question was successfully updated."
