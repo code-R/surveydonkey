@@ -7,6 +7,10 @@ class Question < ActiveRecord::Base
 
   belongs_to :survey
 
+  def self.model_name
+    ActiveModel::Name.new(self, nil, 'question')
+  end
+
   #virtual attributes to handle question type
   def humanized_question_type
     type.split("::").last[0..-5] if type.present?

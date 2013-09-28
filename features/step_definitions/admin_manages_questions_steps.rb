@@ -25,3 +25,15 @@ Then(/^I should see edit and destroy links on a question$/) do
     page.should have_content 'Destroy'
   end
 end
+
+When(/^I click destroy on a question$/) do
+  find('.destroy-question').click
+end
+
+When(/^I click edit on a question$/) do
+  find('.edit-question').click
+end
+
+Then(/^I should go to question edit page$/) do
+  page.current_path == 'edit'
+end

@@ -34,5 +34,5 @@
         %td
           = question.type
         %td
-          = link_to 'Edit', edit_survey_question_path(@survey, question), class: %w(btn btn-mini)
-          = link_to 'Destroy', question.becomes(Question), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: %w(btn btn-mini btn-danger)
+          = link_to 'Edit', edit_survey_question_path(@survey, question), class: %w(btn btn-mini edit-question)
+          = link_to 'Destroy', question.becomes(Question), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: %w(btn btn-mini btn-danger destroy-question)
