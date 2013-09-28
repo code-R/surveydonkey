@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Survey do
-  subject { Survey.new }
+describe Question do
+  subject { Question.new }
   context "Accesible" do
-    accesible_attributes = %w(description title)
+    accesible_attributes = %w(description survey_id type)
 
     accesible_attributes.each do |attr|
       it { should be_accessible attr }
@@ -15,14 +15,4 @@ describe Survey do
       it { should_not be_accessible attr }
     end
   end
-
-  context "validations" do
-    it { should validate_presence_of :title }
-    it { should validate_presence_of :description }
-  end
-
-  context "associations" do
-    it { should have_many(:questions) }
-  end
-
 end

@@ -1,0 +1,11 @@
+%h1 New Question
+
+= simple_form_for([@survey, @question]) do |f|
+  .form-inputs
+    = f.input :description
+    = f.select :type, Question::TYPES
+
+  .form-actions
+    = f.button :submit
+
+= link_to 'Back', surveys_path
