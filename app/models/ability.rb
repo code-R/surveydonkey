@@ -7,7 +7,7 @@ class Ability
 
     if user.admin?
       can :manage, :all
-    elsif
+    elsif user.persisted?
       can :read, Survey
     end
   end

@@ -6,5 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-admin = User.create(email: 'admin@surveydonkey.com', password: 'qwerty123', role: 'admin')
-admin.confirm!
+admin = User.new(email: 'admin@surveydonkey.com', password: 'qwerty123', role: 'admin')
+admin.skip_confirmation!
+admin.save
