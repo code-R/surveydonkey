@@ -14,7 +14,7 @@ Feature: Manage Questions on a Survey
     And I click "Create Question"
     Then I should see "Question was successfully added."
 
-  Scenario: Admin adds a date question to a survey
+  Scenario: Admin adds a date question to a survey with invalid data
     When I visit survey page as admin
     And I click "Add Question"
     And I click "Create Question"

@@ -14,6 +14,6 @@ class SurveyDecorator < Draper::Decorator
   end
 
   def destroy_link
-    h.link_to 'Destroy', object, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: %w(btn btn-mini btn-danger)
+    h.link_to 'Destroy', object, method: :delete, data: { confirm: 'Are you sure?' }, class: %w(btn btn-mini btn-danger)
   end
 end

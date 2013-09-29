@@ -19,7 +19,7 @@ describe "Routes" do
     end
 
     it "routes /surveys/:survey_id/questions to questions#update http_method#put" do
-      expect(put: '/surveys/1/questions/1').to route_to(controller: 'questions', action: 'create', survey_id: '1', id: '1')
+      expect(put: '/surveys/1/questions/1').to route_to(controller: 'questions', action: 'update', survey_id: '1', id: '1')
     end
   end
 end
