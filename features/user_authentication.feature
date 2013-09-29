@@ -8,7 +8,7 @@ Feature: User Authentication
 
   Scenario: User is not allowed to sign in
     Given There is no user
-    When I sign in with valid email and password
+    When I login with valid attributes
     Then I see an error message
     And I should see invalid message
 
@@ -43,11 +43,11 @@ Feature: User Authentication
 
   Scenario: User tries to login with out confirmation
     When I register with valid email "vamsi@surveydonkey.com"
-    And I sign in with valid email and password
+    And I login as a normal user
     Then I should see confirmation_error message
 
   Scenario: User tries to login after confirmation
     When I register with valid email "vamsi@surveydonkey.com"
     And I confirm the account
-    And I sign in with valid email and password
+    And I login as a normal user
     Then I should see success message

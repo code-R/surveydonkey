@@ -7,6 +7,8 @@
   %b Description:
   = @survey.description
 
+= @survey.participate_link
+
 - if can? :manage, Survey
   = @survey.edit_link
   \|

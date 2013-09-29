@@ -29,5 +29,9 @@ describe "Routes" do
     it "routes /surveys/:id to surveys#destroy http_method#delete" do
       expect(delete: '/surveys/1').to route_to(controller: 'surveys', action: 'destroy', id: '1')
     end
+
+    it "routes /surveys/:id/participate to surveys#participate http_method#get" do
+      expect(get: '/surveys/1/participate').to route_to(controller: 'surveys', action: 'participate', id: '1')
+    end
   end
 end

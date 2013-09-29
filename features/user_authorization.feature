@@ -8,13 +8,13 @@ Feature: User Authorization
 
   Scenario: User with normal role can view surveys
     Given There is a survey
-    When I sign in with valid email and password
+    When I login as a normal user
     And I visit survey page
     Then I should be able to view the page
 
   Scenario: User with normal role can't create surveys
     Given There is a survey
-    When I sign in with valid email and password
+    When I login as a normal user
     And I visit survey create page
     Then I should see invalid authorization message
 
@@ -25,7 +25,7 @@ Feature: User Authorization
 
   Scenario: User with normal role can't view edit and delete links on surveys
     Given There is a survey
-    When I sign in with valid email and password
+    When I login as a normal user
     And I visit survey list page
     Then I should not see edit and destroy links
 
@@ -41,7 +41,7 @@ Feature: User Authorization
 
   Scenario: User with normal role can't view edit and delete links on survey page
     Given There is a survey
-    When I sign in with valid email and password
+    When I login as a normal user
     And I visit survey page
     Then I should not see edit and destroy links
 
@@ -62,6 +62,6 @@ Feature: User Authorization
   Scenario: User with normal role can't view list of questions added on survey
     Given There is a survey
     And Survey has some questions added
-    When I sign in with valid email and password
+    When I login as a normal user
     And I visit survey page
     Then I should not see list of Questions

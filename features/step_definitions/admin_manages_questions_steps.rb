@@ -9,7 +9,7 @@ When(/^I visit survey page as admin$/) do
 end
 
 Given(/^Survey has some questions added$/) do
-  FactoryGirl.create(:date_question, survey: @survey)
+  3.times { FactoryGirl.create(:date_question, survey: @survey) }
 end
 
 Then(/^I should see list of Questions$/) do
@@ -27,11 +27,15 @@ Then(/^I should see edit and destroy links on a question$/) do
 end
 
 When(/^I click destroy on a question$/) do
-  find('.destroy-question').click
+  within "#questions-table" do
+    first(:link, 'Destroy').click
+  end
 end
 
 When(/^I click edit on a question$/) do
-  find('.edit-question').click
+  within "#questions-table" do
+    first(:link, 'Edit').click
+  end
 end
 
 Then(/^I should go to question edit page$/) do

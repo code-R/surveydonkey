@@ -1,6 +1,10 @@
 class SurveyDecorator < Draper::Decorator
   delegate_all
 
+  def participate_link
+    h.link_to 'Participate', h.participate_survey_path(object)
+  end
+
   def title_link
     h.link_to object.title, h.survey_path(object)
   end

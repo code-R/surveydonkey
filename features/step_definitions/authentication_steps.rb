@@ -29,9 +29,18 @@ Given(/^There is no user$/) do
   User.destroy_all
 end
 
-When(/^I sign in with valid email and password$/) do
-  login(email: 'vamsi@surveydonkey.com', password: 'changeme')
+When(/^I login as a normal user$/) do
+  user_attributes = FactoryGirl.attributes_for(:user)
+  user = User.new(user_attributes)
+  user.skip_confirmation!
+  user.save unless User.exists?(email: user_attributes[:email])
+  login(email: user.email, password: user_attributes[:password])
 end
+
+When(/^I login with valid attributes$/) do
+  login(email: 'valid_email@surveydonkey.com', password: 'valid_password')
+end
+
 
 Then(/^I see an error message$/) do
   page.should have_content 'Invalid email or password.'

@@ -33,4 +33,10 @@ describe SurveyDecorator do
       decorated_survey.destroy_link.should == "<a href=\"/surveys/#{survey.id}\" class=\"btn btn-mini btn-danger\" data-confirm=\"Are you sure?\" data-method=\"delete\" rel=\"nofollow\">Destroy</a>"
     end
   end
+
+  context "#participate_link" do
+    it "should return participate link" do
+      decorated_survey.participate_link.should == "<a href=\"/surveys/#{survey.id}/participate\">Participate</a>"
+    end
+  end
 end
