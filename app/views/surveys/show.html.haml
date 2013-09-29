@@ -34,7 +34,7 @@
         %td
           = "#{index + 1}) #{question.description}"
         %td
-          = question.type
+          = question.humanized_question_type
         %td
           = link_to 'Edit', edit_survey_question_path(@survey, question), class: %w(btn btn-mini edit-question)
           = link_to 'Destroy', question.becomes(Question), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: %w(btn btn-mini btn-danger destroy-question)

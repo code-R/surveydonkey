@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
   attr_accessible :description, :survey_id, :humanized_question_type
 
-  TYPES = %w(date)
+  TYPES = %w(date number)
 
   validates :description, :type, :survey_id, presence: true
 
