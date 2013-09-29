@@ -22,3 +22,9 @@ Feature: User participates in a survey
     When I visit survey page
     And I click "Participate"
     Then I should start on survey
+
+  Scenario: User answers all questions in a survey
+    When I visit survey page
+    And I click "Participate"
+    And I answer all survey questions
+    Then I should see "Survey is completed."

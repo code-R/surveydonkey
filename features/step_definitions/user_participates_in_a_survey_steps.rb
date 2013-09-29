@@ -12,3 +12,13 @@ Then(/^I should start on survey$/) do
 
   page.current_path.should == new_question_response_path(question)
 end
+
+When(/^I answer all survey questions$/) do
+  survey = Survey.last
+  number_of_questions_in_survey = survey.questions.size
+
+  number_of_questions_in_survey.times do
+    fill_in 'response_answer', :with => 'answer'
+    click_button('Submit')
+  end
+end

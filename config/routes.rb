@@ -8,7 +8,7 @@ SurveyDonkey::Application.routes.draw do
   end
 
   resources :questions, only: %w(destroy) do
-    resources :responses, only: %w(new)
+    resources :responses, only: %w(new create)
   end
 
   devise_for :users
