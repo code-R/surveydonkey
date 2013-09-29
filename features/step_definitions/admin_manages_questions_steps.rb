@@ -9,7 +9,7 @@ When(/^I visit survey page as admin$/) do
 end
 
 Given(/^Survey has some questions added$/) do
-  3.times { FactoryGirl.create(:date_question, survey: @survey) }
+  3.times { create(:date_question, survey: @survey) }
 end
 
 Then(/^I should see list of Questions$/) do

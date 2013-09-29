@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Question do
   accessible_attributes = %w(description survey_id humanized_question_type)
   subject { Question.new }
-  let(:user) { user = FactoryGirl.build(:user) }
+  let(:user) { user = build(:user) }
 
   context "Accesible" do
     accessible_attributes.each do |attr|
@@ -25,11 +25,12 @@ describe Question do
 
   context "associations" do
     it { should belong_to(:survey) }
+    it { should have_many(:responses) }
   end
 
   context "#humanized_question_type" do
     it "return humanized question type" do
-      FactoryGirl.build(:date_question).humanized_question_type.should == 'Date'
+      build(:date_question).humanized_question_type.should == 'Date'
     end
 
     it "return nil if question type is not set" do

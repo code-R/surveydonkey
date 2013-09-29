@@ -43,7 +43,7 @@ Feature: User Authentication
 
   Scenario: User tries to login with out confirmation
     When I register with valid email "vamsi@surveydonkey.com"
-    And I login as a normal user
+    And I login as a normal user with out confirmation
     Then I should see confirmation_error message
 
   Scenario: User tries to login after confirmation

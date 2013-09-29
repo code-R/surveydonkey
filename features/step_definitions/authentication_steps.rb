@@ -30,10 +30,17 @@ Given(/^There is no user$/) do
 end
 
 When(/^I login as a normal user$/) do
-  user_attributes = FactoryGirl.attributes_for(:user)
+  user_attributes = attributes_for(:user)
   user = User.new(user_attributes)
   user.skip_confirmation!
-  user.save unless User.exists?(email: user_attributes[:email])
+  user.save
+  login(email: user.email, password: user_attributes[:password])
+end
+
+When(/^I login as a normal user with out confirmation$/) do
+  user_attributes = attributes_for(:user)
+  user = User.create(user_attributes)
+
   login(email: user.email, password: user_attributes[:password])
 end
 

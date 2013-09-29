@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SurveyDecorator do
-  let(:survey) { FactoryGirl.create(:survey) }
+  let(:survey) { create(:survey) }
   let(:decorated_survey) { SurveyDecorator.decorate(survey) }
 
   context "#title_link" do

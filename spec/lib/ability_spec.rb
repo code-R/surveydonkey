@@ -15,7 +15,7 @@ describe "User" do
     end
 
     context "normal user" do
-      let(:user){ FactoryGirl.create(:user) }
+      let(:user){ create(:user) }
 
       it{ should be_able_to(:index, survey) }
       it{ should_not be_able_to(:manage, survey) }
@@ -26,7 +26,7 @@ describe "User" do
 
 
     context "admin user" do
-      let(:user){ FactoryGirl.create(:admin) }
+      let(:user){ create(:admin) }
 
       it{ should be_able_to(:all, survey) }
     end

@@ -6,6 +6,7 @@ class Question < ActiveRecord::Base
   validates :description, :type, :survey_id, presence: true
 
   belongs_to :survey
+  has_many :responses
 
   def self.model_name
     ActiveModel::Name.new(self, nil, 'question')

@@ -1,0 +1,13 @@
+%h1
+  = "#{@survey.title} Responses"
+
+- @survey.questions.includes(:responses => :user).each do |question|
+  %h4
+    = question.description
+  - question.responses.group_by(&:user_id).each do |user_id, responses|
+    .user-email
+      = responses.first.user.email
+    %ol
+      - responses.each do |response|
+        %li
+          = response.answer

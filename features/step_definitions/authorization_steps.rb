@@ -1,11 +1,11 @@
 Given(/^There is a confirmed user$/) do
-  user = FactoryGirl.create(:user)
+  user = create(:user)
   user.confirm!
 end
 
 Given(/^There is a survey$/) do
   Survey.destroy_all
-  @survey = FactoryGirl.create(:survey)
+  @survey = create(:survey)
 end
 
 When(/^I visit survey page$/) do
@@ -26,7 +26,7 @@ end
 
 
 When(/^I login as admin$/) do
-  admin = FactoryGirl.create(:admin)
+  admin = create(:admin)
   admin.confirm!
   login(email: admin.email, password: 'changeme')
 end

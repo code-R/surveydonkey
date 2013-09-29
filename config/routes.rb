@@ -1,6 +1,7 @@
 SurveyDonkey::Application.routes.draw do
   resources :surveys do
     resources :questions, only: %w(new create edit update)
+    resources :responses, only: %w(index)
 
     member do
       get :participate

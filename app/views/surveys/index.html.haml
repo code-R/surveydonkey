@@ -12,10 +12,11 @@
       %td= survey.title_link
       %td= survey.truncated_description
       %td
-        - if can? :update, survey
+        - if can? :manage, survey
           = survey.edit_link
-        - if can? :destroy, survey
           = survey.destroy_link
+        - if can? :read, Response
+          = link_to 'View all responses', '#'
 
 %br
 
