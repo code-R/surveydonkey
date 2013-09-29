@@ -9,6 +9,8 @@ class Ability
       can :manage, :all
     elsif user.persisted?
       can :read, Survey
+      can :participate, Survey
+      can :create, Response
     end
   end
 end

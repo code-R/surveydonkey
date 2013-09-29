@@ -6,7 +6,7 @@ Feature: User Authorization
   Background:
     Given There is a confirmed user
 
-  Scenario: User with normal role can view surveys
+  Scenario: User with normal role can view survey
     Given There is a survey
     When I login as a normal user
     And I visit survey page
@@ -57,7 +57,6 @@ Feature: User Authorization
     When I login as admin
     And I visit survey page
     Then I should see list of Questions
-
 
   Scenario: User with normal role can't view list of questions added on survey
     Given There is a survey

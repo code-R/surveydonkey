@@ -2,6 +2,20 @@ class SurveysController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
   load_and_authorize_resource
 
+  before_filter :fetch_survey, only: %w(show edit update destroy participate)
+
+  def participate
+    question_ids = @survey.questions.map(&:id)
+
+    if question_ids.present?
+      session[:question_ids] = question_ids #move this in to memcache, instead of session
+      question_id = session[:question_ids].delete_at 0
+      redirect_to new_question_response_path(question_id), notice: 'Started Survey, please answer all your questions'
+    else
+      redirect_to :back, alert: 'There are no questions added in the survey'
+    end
+  end
+
   # GET /surveys
   # GET /surveys.json
   def index
@@ -16,7 +30,7 @@ class SurveysController < ApplicationController
   # GET /surveys/1
   # GET /surveys/1.json
   def show
-    @survey = Survey.find(params[:id]).decorate
+    @survey = @survey.decorate
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +51,6 @@ class SurveysController < ApplicationController
 
   # GET /surveys/1/edit
   def edit
-    @survey = Survey.find(params[:id])
   end
 
   # POST /surveys
@@ -59,8 +72,6 @@ class SurveysController < ApplicationController
   # PUT /surveys/1
   # PUT /surveys/1.json
   def update
-    @survey = Survey.find(params[:id])
-
     respond_to do |format|
       if @survey.update_attributes(params[:survey])
         format.html { redirect_to @survey, notice: 'Survey was successfully updated.' }
@@ -75,7 +86,6 @@ class SurveysController < ApplicationController
   # DELETE /surveys/1
   # DELETE /surveys/1.json
   def destroy
-    @survey = Survey.find(params[:id])
     @survey.destroy
 
     respond_to do |format|
@@ -83,4 +93,9 @@ class SurveysController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def fetch_survey
+      @survey = Survey.find(params[:id])
+    end
 end

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Routes" do
-  context "Question" do
+  context "Questions" do
     it "routes /surveys/:survey_id/questions/new to questions#new http_method#get" do
       expect(get: '/surveys/1/questions/new').to route_to(controller: 'questions', action: 'new', survey_id: '1')
     end
