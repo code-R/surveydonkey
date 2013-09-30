@@ -8,7 +8,8 @@ class ResponsesController < ApplicationController
   end
 
   def new
-    @response = Response.new(user_id: current_user.id, question_id: @question.id)
+    form_klass = "Question::#{@question.humanized_question_type}TypeForm".constantize
+    @answer_form = form_klass.new(@question, current_user)
   end
 
   def create
