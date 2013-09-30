@@ -1,6 +1,8 @@
 SurveyDonkey
 ============
 
+[![Build Status](https://travis-ci.org/code-R/surveydonkey.png?branch=master)](https://travis-ci.org/code-R/surveydonkey)
+
 One does not simply walk into Mordor
 
 ## Description
