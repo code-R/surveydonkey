@@ -16,12 +16,6 @@ describe Response do
     end
   end
 
-  context "validations" do
-    accessible_attributes.each do |attr|
-      it { should validate_presence_of attr}
-    end
-  end
-
   context "associations" do
     it { should belong_to(:user) }
     it { should belong_to(:question) }

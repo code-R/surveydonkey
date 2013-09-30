@@ -3,8 +3,9 @@ class QuestionForm
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :answer
-  attr_reader :question, :user
+  attr_accessor :answer, :question, :user
+
+  validates :answer, :question, :user, presence: true
 
   delegate :description, to: :question
 
