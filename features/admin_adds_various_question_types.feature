@@ -7,24 +7,15 @@ Feature: Manage Questions on a Survey
     Given I login as admin
     And There is a survey
 
-  Scenario: Admin adds a date question to a survey
+  Scenario Outline: Admin adds a date question to a survey
     When I visit survey page as admin
     And I click "Add Question"
-    And I fill in "Date" Question details
+    And I fill in "<question_type>" Question details
     And I click "Create Question"
     Then I should see "Question was successfully added."
-    And I should see "Date" type in the page
-
-  Scenario: Admin adds a numeric question to a survey
-    When I visit survey page as admin
-    And I click "Add Question"
-    And I fill in "Number" Question details
-    And I click "Create Question"
-    Then I should see "Number" type in the page
-
-  Scenario: Admin adds a numeric question to a survey
-    When I visit survey page as admin
-    And I click "Add Question"
-    And I fill in "Essay" Question details
-    And I click "Create Question"
-    Then I should see "Essay" type in the page
+    And I should see "<question_type>" type in the page
+  Examples:
+    |question_type|
+    |Date|
+    |Number|
+    |Essay|
