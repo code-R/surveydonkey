@@ -2,4 +2,9 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  questions:
+    type:
+      date: 'Date type'
+      essay: 'Essay type'
+      number: 'Number type'
+      multiple_choice_radio_button: 'Multiple choice via radio button type'

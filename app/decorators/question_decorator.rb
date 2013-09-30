@@ -2,9 +2,9 @@ class QuestionDecorator < Draper::Decorator
   delegate_all
 
   def self.type_options_for_select
-    %w(date number)
     Question::TYPES.inject([]) do |result, ele|
-      result << [ele.titleize, ele]
+      humanized_question_type = I18n.t "questions.type.#{ele}"
+      result << [humanized_question_type, ele]
     end
   end
 end

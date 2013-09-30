@@ -16,6 +16,7 @@ Feature: Manage Questions on a Survey
     And I should see "<question_type>" type in the page
   Examples:
     |question_type|
-    |Date|
-    |Number|
-    |Essay|
+    # |Date|
+    # |Number|
+    # |Essay|
+    |Multiple choice via radio button|

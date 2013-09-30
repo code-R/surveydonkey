@@ -26,7 +26,7 @@ class ResponsesController < ApplicationController
   private
     def fetch_answer_form
       question = Question.find params[:question_id]
-      form_klass = "Question::#{question.humanized_question_type}TypeForm".constantize
+      form_klass = "#{question.type}Form".constantize
       @answer_form = form_klass.new(question, current_user)
     end
 end

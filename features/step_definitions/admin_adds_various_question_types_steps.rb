@@ -1,6 +1,6 @@
 When(/^I fill in "(.*?)" Question details$/) do |question_type|
   fill_in 'question_description', with: 'first question'
-  select(question_type, from: 'question_humanized_question_type')
+  select("#{question_type} type", from: 'question_humanized_question_type')
 end
 
 Then(/^I should see "(.*?)" type in the page$/) do |question_type|

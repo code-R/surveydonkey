@@ -29,20 +29,13 @@ describe Question do
   end
 
   context "#humanized_question_type" do
-    it "return humanized question type" do
-      build(:date_question).humanized_question_type.should == 'Date'
-    end
-
     it "return nil if question type is not set" do
       q = Question.new
       q.humanized_question_type.should be_nil
     end
 
-    it "set question type based on RAILS STI" do
-      q = Question.new
-      q.type.should be_nil
-      q.humanized_question_type = 'date'
-      q.type.should == 'Question::DateType'
+    it "should raise exception is the question type is set to nil" do
+      expect { Question.new(humanized_question_type: nil) }.to raise_error('Should set Question Type')
     end
   end
 end
