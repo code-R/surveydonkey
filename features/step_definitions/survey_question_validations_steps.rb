@@ -4,8 +4,8 @@ When(/^Survey has a "(.*?)" Question$/) do |question_type|
   create(:"#{question_type}_question", survey: survey)
 end
 
-Then(/^I should see "(.*?)" type input$/) do |question_type|
-  page.has_css?("#new_question_response input.#{question_type}").should be_present
+Then(/^I should see "(.*?)" type input$/) do |input_type|
+  find("#question_response_answer")[:class].include?(input_type).should be
 end
 
 When(/^I answer with some text$/) do

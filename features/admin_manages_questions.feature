@@ -7,13 +7,6 @@ Feature: Manage Questions on a Survey
     Given I login as admin
     And There is a survey
 
-  Scenario: Admin adds a date question to a survey
-    When I visit survey page as admin
-    And I click "Add Question"
-    And I fill in Date Question details
-    And I click "Create Question"
-    Then I should see "Question was successfully added."
-
   Scenario: Admin adds a date question to a survey with invalid data
     When I visit survey page as admin
     And I click "Add Question"
@@ -44,10 +37,3 @@ Feature: Manage Questions on a Survey
     And I fill in question info
     And I click "Update Question"
     Then I should see "Question was successfully updated."
-
-  Scenario: Admin adds a numeric question to a survey
-    When I visit survey page as admin
-    And I click "Add Question"
-    And I fill in Number Question details
-    And I click "Create Question"
-    Then I should see number type in the page

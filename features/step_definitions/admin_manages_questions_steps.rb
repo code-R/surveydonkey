@@ -1,8 +1,3 @@
-When(/^I fill in Date Question details$/) do
-  fill_in 'question_description', with: 'first question'
-  select('date', from: 'question_humanized_question_type')
-end
-
 When(/^I visit survey page as admin$/) do
   @survey = Survey.last
   visit survey_path @survey
@@ -49,16 +44,5 @@ end
 
 When(/^I fill in question info$/) do
   fill_in 'question_description', with: 'question updated'
-end
-
-When(/^I fill in Number Question details$/) do
-  fill_in 'question_description', with: 'first question'
-  select('number', from: 'question_humanized_question_type')
-end
-
-Then(/^I should see number type in the page$/) do
-  within('#questions-table') do
-    page.should have_content 'Number'
-  end
 end
 

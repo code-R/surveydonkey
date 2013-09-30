@@ -36,3 +36,9 @@ Feature: Survey Question validations
     And I click "Participate"
     And I answer with some text
     Then I should see invalid "number" message
+
+  Scenario: User should see essay type input
+    When I visit survey page
+    And Survey has a "essay" Question
+    And I click "Participate"
+    Then I should see "text" type input

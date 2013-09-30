@@ -7,5 +7,9 @@ FactoryGirl.define do
     factory :number_question do
       humanized_question_type 'number'
     end
+
+    factory :essay_question do
+      humanized_question_type 'essay'
+    end
   end
 end
