@@ -26,3 +26,11 @@ production:
 
 cucumber:
   <<: *test
+
+postgresql: &postgresql
+  adapter: postgresql
+  username: postgres
+  password:
+  database: survey_donkey_<%= Rails.env %>;
+  min_messages: ERROR
+
