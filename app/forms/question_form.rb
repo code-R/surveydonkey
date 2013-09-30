@@ -17,8 +17,17 @@ class QuestionForm
     @user = user
   end
 
+  def submit(params)
+    self.answer = params[:question_response][:answer]
+    if self.valid?
+      response = Response.create!(answer: answer, question_id: question.id, user_id: user.id)
+      true
+    else
+      false
+    end
+  end
+
   def persisted?
     false
   end
-
 end

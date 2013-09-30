@@ -18,7 +18,7 @@ When(/^I answer all survey questions$/) do
   number_of_questions_in_survey = survey.questions.size
 
   number_of_questions_in_survey.times do
-    fill_in 'response_answer', :with => 'answer'
+    fill_in 'question_response_answer', :with => 'answer'
     click_button('Submit')
   end
 end
