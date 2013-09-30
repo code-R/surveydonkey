@@ -2,6 +2,7 @@ SurveyDonkey
 ============
 
 [![Build Status](https://travis-ci.org/code-R/surveydonkey.png?branch=master)](https://travis-ci.org/code-R/surveydonkey)
+[![Code Climate](https://codeclimate.com/repos/52490ee8f3ea0067b1001118/badges/3ae1c953f51a0635d15b/gpa.png)](https://codeclimate.com/repos/52490ee8f3ea0067b1001118/feed)
 
 One does not simply walk into Mordor
 
