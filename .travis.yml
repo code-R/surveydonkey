@@ -5,3 +5,6 @@ env:
   - DB=sqlite
 script:
   - RAILS_ENV=test bundle exec rake --trace db:migrate
+addons:
+  code_climate:
+      repo_token: 4d9951d03f203e13a933f29f1c8f5b4e40c9dadce188ee674b32afeb8077bd07
