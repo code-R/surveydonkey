@@ -8,7 +8,7 @@ SurveyDonkey::Application.routes.draw do
     end
   end
 
-  resources :questions, only: %w(destroy) do
+  resources :questions, only: %w(destroy show) do
     resources :responses, only: %w(new create)
   end
 

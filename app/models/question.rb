@@ -1,5 +1,7 @@
 class Question < ActiveRecord::Base
-  attr_accessible :description, :survey_id, :humanized_question_type
+  attr_accessor :option_names
+
+  attr_accessible :description, :survey_id, :humanized_question_type, :option_names
 
   TYPES = %w(date number essay multiple_choice_radio_button)
 
@@ -24,4 +26,5 @@ class Question < ActiveRecord::Base
     raise 'Should set Question Type' if question_type.nil?
     self.type = "Question::#{question_type.classify}Type"
   end
+
 end

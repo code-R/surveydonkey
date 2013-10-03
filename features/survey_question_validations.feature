@@ -11,34 +11,25 @@ Feature: Survey Question validations
     When I visit survey page
     Then I should find participate link
 
-  Scenario: User should see date type input
+  Scenario Outline: User should see date type input
     When I visit survey page
-    And Survey has a "date" Question
+    And Survey has a "<question_type>" Question
     And I click "Participate"
-    Then I should see "date_picker" type input
+    Then I should see "<input_type>" type input
+  Examples:
+    |question_type| input_type  |
+    |date         | date_picker |
+    |number       | numeric     |
+    |essay        | text        |
 
-  Scenario: User should see number type input
-    When I visit survey page
-    And Survey has a "number" Question
-    And I click "Participate"
-    Then I should see "numeric" type input
 
-  Scenario: User answer should be a date if survey question is of date type
+  Scenario Outline: User answer should be a date if survey question is of date type
     When I visit survey page
-    And Survey has a "date" Question
+    And Survey has a "<question_type>" Question
     And I click "Participate"
     And I answer with some text
-    Then I should see invalid "date" message
-
-  Scenario: User answer should be a number if survey question is of number type
-    When I visit survey page
-    And Survey has a "number" Question
-    And I click "Participate"
-    And I answer with some text
-    Then I should see invalid "number" message
-
-  Scenario: User should see essay type input
-    When I visit survey page
-    And Survey has a "essay" Question
-    And I click "Participate"
-    Then I should see "text" type input
+    Then I should see invalid "<question_type>" message
+  Examples:
+    |question_type|
+    |date         |
+    |number       |

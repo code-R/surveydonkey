@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Question do
-  accessible_attributes = %w(description survey_id humanized_question_type)
+  accessible_attributes = %w(description survey_id humanized_question_type option_names)
   subject { Question.new }
   let(:user) { user = build(:user) }
 
@@ -25,7 +25,11 @@ describe Question do
 
   context "associations" do
     it { should belong_to(:survey) }
-    it { should have_many(:responses) }
+    it { should have_many(:responses).dependent(:destroy) }
+  end
+
+  it "should return model_name as question" do
+    Question.model_name.should == 'question'
   end
 
   context "#humanized_question_type" do

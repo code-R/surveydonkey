@@ -21,5 +21,9 @@ describe "Routes" do
     it "routes /surveys/:survey_id/questions to questions#update http_method#put" do
       expect(put: '/surveys/1/questions/1').to route_to(controller: 'questions', action: 'update', survey_id: '1', id: '1')
     end
+
+    it "routes /questions/:id to questions#show http_method#get" do
+      expect(get: 'questions/1').to route_to(controller: 'questions', action: 'show', id: '1')
+    end
   end
 end

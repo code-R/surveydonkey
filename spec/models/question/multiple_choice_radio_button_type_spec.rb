@@ -11,4 +11,8 @@ describe Question::MultipleChoiceRadioButtonType do
       q.type.should == 'Question::MultipleChoiceRadioButtonType'
     end
   end
+
+  context "associations" do
+    it { should have_many(:options).with_foreign_key('question_id').dependent(:destroy) }
+  end
 end

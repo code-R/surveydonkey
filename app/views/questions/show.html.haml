@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Description:
+  = @question.description
+%p
+  %b type:
+  = @question.humanized_question_type
+
+%ol#options-list
+  - @question.options.each do |option|
+    %li
+      = option.name
+
+= link_to 'Back', root_path

@@ -2,7 +2,11 @@ class QuestionsController < ApplicationController
   load_and_authorize_resource
 
   before_filter :fetch_survey, only: [:new, :create, :edit, :update]
-  before_filter :fetch_question, only: [:edit, :destroy, :update]
+  before_filter :fetch_question, only: [:show, :edit, :destroy, :update]
+
+  def show
+
+  end
 
   def new
     @survey   = Survey.find params[:survey_id]
@@ -10,7 +14,9 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(params[:question])
+    qtype = params[:question][:humanized_question_type]
+    question_sti_klass = "Question::#{qtype.classify}Type".constantize
+    @question = question_sti_klass.new(params[:question])
 
     if @question.save
       redirect_to @survey, notice: 'Question was successfully added.'
