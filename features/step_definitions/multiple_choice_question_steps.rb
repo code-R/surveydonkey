@@ -20,3 +20,16 @@ Then(/^I should see options on that question$/) do
   page.should have_content('choice 1')
   page.should have_content('choice 2')
 end
+
+When(/^I visit survey edit page$/) do
+  visit edit_survey_question_path(Survey.last, Question.last)
+end
+
+Then(/^I should see options prefilled in the page$/) do
+  find_field(:question_option_names).value.should == "choice 1\nchoice 2\nchoice 3"
+end
+
+Given(/^it has various options$/) do
+  question = Question::MultipleChoiceRadioButtonType.last
+  3.times { create(:option, question_id: question.id) }
+end

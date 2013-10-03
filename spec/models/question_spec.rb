@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Question do
-  accessible_attributes = %w(description survey_id humanized_question_type option_names)
+  accessible_attributes = %w(description survey_id qtype option_names)
   subject { Question.new }
   let(:user) { user = build(:user) }
 
@@ -10,7 +10,7 @@ describe Question do
       it { should be_accessible attr }
     end
 
-    protected_attributes = Survey.new.attributes.keys - accessible_attributes
+    protected_attributes = Question.new.attributes.keys - accessible_attributes
 
     protected_attributes.each do |attr|
       it { should_not be_accessible attr }
@@ -32,14 +32,14 @@ describe Question do
     Question.model_name.should == 'question'
   end
 
-  context "#humanized_question_type" do
+  context "#qtype" do
     it "return nil if question type is not set" do
       q = Question.new
-      q.humanized_question_type.should be_nil
+      q.qtype.should be_nil
     end
 
     it "should raise exception is the question type is set to nil" do
-      expect { Question.new(humanized_question_type: nil) }.to raise_error('Should set Question Type')
+      expect { Question.new(qtype: nil) }.to raise_error('Should set Question Type')
     end
   end
 end

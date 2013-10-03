@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    qtype = params[:question][:humanized_question_type]
+    qtype = params[:question][:qtype]
     question_sti_klass = "Question::#{qtype.classify}Type".constantize
     @question = question_sti_klass.new(params[:question])
 
@@ -26,7 +26,6 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update

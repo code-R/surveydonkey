@@ -3,6 +3,10 @@ class Question::MultipleChoiceRadioButtonType < Question
 
   before_save :create_options
 
+  def option_names
+    @option_names || options.pluck(:name).join(';')
+  end
+
   private
     def create_options
       option_names.lines.each do |name|

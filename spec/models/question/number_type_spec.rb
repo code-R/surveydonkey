@@ -7,7 +7,7 @@ describe Question::NumberType do
     end
 
     it "set question type based on RAILS STI" do
-      q = Question.new(humanized_question_type: 'number')
+      q = Question.new(qtype: 'number')
       q.type.should == 'Question::NumberType'
     end
   end

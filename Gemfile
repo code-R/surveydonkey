@@ -33,10 +33,11 @@ end
 group :test do
   gem 'capybara'
   gem 'cucumber-rails', :require => false
-  gem 'database_cleaner'
+  gem 'database_cleaner', '< 1.1.0'
   gem 'factory_girl_rails'
   gem 'launchy'
   gem 'rspec-rails'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers'
 end
 

@@ -1,19 +1,19 @@
 FactoryGirl.define do
   factory :date_question, class: Question::DateType do
     description 'this is question description'
-    humanized_question_type 'Date'
+    qtype 'date'
     survey
 
     factory :number_question do
-      humanized_question_type 'Number'
+      qtype 'number'
     end
 
     factory :essay_question do
-      humanized_question_type 'Essay'
+      qtype 'essay'
     end
 
-    factory :multiple_choice_radio_button do
-      humanized_question_type 'multiple_choice_radio_button'
+    factory :multiple_choice_radio_button_question do
+      qtype 'multiple_choice_radio_button'
     end
   end
 end

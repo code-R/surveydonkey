@@ -23,3 +23,9 @@ Feature: Manage multiple choice questions
     And I fill in option details
     And I click "Create Question"
     Then I should see options on that question
+
+  Scenario: Admin should see options in the edit page
+    When I fill in "Multiple choice via radio button" Question details
+    And I fill in option details
+    And I click "Create Question"
+    Then I should see options on that question

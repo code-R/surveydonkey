@@ -7,7 +7,7 @@ describe Question::DateType do
     end
 
     it "set question type based on RAILS STI" do
-      q = Question.new(humanized_question_type: 'date')
+      q = Question.new(qtype: 'date')
       q.type.should == 'Question::DateType'
     end
   end
