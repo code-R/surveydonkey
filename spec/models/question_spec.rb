@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Question do
-  accessible_attributes = %w(description survey_id qtype option_names)
+  accessible_attributes = %w(description survey_id qtype option_names is_required)
   subject { Question.new }
   let(:user) { user = build(:user) }
 
@@ -40,6 +40,26 @@ describe Question do
 
     it "should raise exception is the question type is set to nil" do
       expect { Question.new(qtype: nil) }.to raise_error('Should set Question Type')
+    end
+  end
+
+  context "#required!" do
+    let(:question) { Question.new }
+
+    it "should set the status as required" do
+      question.should_not be_is_required
+      question.required!
+      question.should be_is_required
+    end
+  end
+
+  context "#required!" do
+    let(:question) { Question.new(is_required: true) }
+
+    it "should set the status as required" do
+      question.should be_is_required
+      question.optional!
+      question.should_not be_is_required
     end
   end
 end

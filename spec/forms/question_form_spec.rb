@@ -6,9 +6,17 @@ describe QuestionForm do
   subject { QuestionForm.new(question, user) }
 
   context "validations" do
-    it { should validate_presence_of :answer}
-    it { should validate_presence_of :question}
-    it { should validate_presence_of :user}
+    before { QuestionForm.any_instance.should_receive(:is_required?).at_least(1).times.and_return(true) }
+
+    it { should validate_presence_of :question }
+    it { should validate_presence_of :user }
+    it { should validate_presence_of :answer }
+  end
+
+  context "#valid?" do
+    it "should skip validations if the question is marked as optional" do
+      subject.should_not be_valid
+    end
   end
 
   context "#description" do

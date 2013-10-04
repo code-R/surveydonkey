@@ -7,7 +7,7 @@ class QuestionForm
 
   validates :answer, :question, :user, presence: true
 
-  delegate :description, to: :question
+  delegate :description, :is_required?, to: :question
 
   def self.model_name
     ActiveModel::Name.new(self, nil, 'question_response')
@@ -31,4 +31,10 @@ class QuestionForm
   def persisted?
     false
   end
+
+  def valid?
+    return true unless is_required?
+    super
+  end
+
 end
