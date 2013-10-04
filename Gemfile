@@ -6,6 +6,7 @@ gem 'devise'
 gem 'draper'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'mab'
 gem 'rails', '3.2.14'
 gem 'simple_form'
 

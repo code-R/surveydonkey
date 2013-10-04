@@ -33,3 +33,7 @@ Given(/^it has various options$/) do
   question = Question::MultipleChoiceRadioButtonType.last
   3.times { create(:option, question_id: question.id) }
 end
+
+Then(/^I should see multiple_choice_radio_button type input$/) do
+  page.has_css?('.form-inputs ol li input.multiple_choice_radio_button')
+end

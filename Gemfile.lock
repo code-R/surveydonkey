@@ -114,6 +114,7 @@ GEM
       actionpack (>= 3.1)
       less (~> 2.4.0)
     libv8 (3.16.14.3)
+    mab (0.0.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -247,6 +248,7 @@ DEPENDENCIES
   jquery-ui-rails
   launchy
   less-rails
+  mab
   pg
   pry
   quiet_assets

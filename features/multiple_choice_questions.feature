@@ -13,3 +13,8 @@ Feature: Edit multiple choice questions
   Scenario: Admin should see options to edit
     When I visit survey edit page
     Then I should see options prefilled in the page
+
+  Scenario: User should see radio button type input
+    When I visit survey page
+    And I click "Participate"
+    Then I should see multiple_choice_radio_button type input

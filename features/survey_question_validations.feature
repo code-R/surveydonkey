@@ -11,7 +11,7 @@ Feature: Survey Question validations
     When I visit survey page
     Then I should find participate link
 
-  Scenario Outline: User should see date type input
+  Scenario Outline: User should see input type based on question type
     When I visit survey page
     And Survey has a "<question_type>" Question
     And I click "Participate"
