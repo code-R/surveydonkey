@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
   attr_accessor :option_names
 
-  attr_accessible :description, :survey_id, :qtype, :option_names, :is_required
+  attr_accessible :description, :survey_id, :qtype, :option_names, :is_required, :parent_id
 
   TYPES = %w(date number essay multiple_choice_radio_button)
 
@@ -9,6 +9,8 @@ class Question < ActiveRecord::Base
 
   belongs_to :survey
   has_many :responses, dependent: :destroy
+
+  has_ancestry
 
   def self.model_name
     ActiveModel::Name.new(self, nil, 'question')

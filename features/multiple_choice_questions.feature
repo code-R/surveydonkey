@@ -18,3 +18,4 @@ Feature: Edit multiple choice questions
     When I visit survey page
     And I click "Participate"
     Then I should see multiple_choice_radio_button type input
+

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 
+gem 'ancestry'
 gem 'cancan'
 gem 'devise'
 gem 'draper'

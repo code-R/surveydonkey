@@ -1,6 +1,8 @@
 FactoryGirl.define do
   factory :date_question, class: Question::DateType do
-    description 'this is question description'
+    sequence :description  do |n|
+      "this is a question description #{n}"
+    end
     qtype 'date'
     is_required true
     survey
