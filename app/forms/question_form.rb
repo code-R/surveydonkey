@@ -37,4 +37,8 @@ class QuestionForm
     super
   end
 
+  def dependent_questions
+    self.children.dependent_questions(answer)
+  end
+
 end

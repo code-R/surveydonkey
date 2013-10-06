@@ -24,7 +24,7 @@ updateQuestionOptionsData = ->
 showOrHideParentOptions = (question_id) ->
   if question_id
     $.getJSON "/questions/#{question_id}/options.json", (data) ->
-      $("#dependent-options").append "<input type='checkbox' value='1' name='question[is_comparator]' class='boolean optional'> comparator <br/>"
+      $("#dependent-options").append "<input type='checkbox' value='1' name='question[comparator]' class='boolean optional'> comparator <br/>"
       $.each data, (index, option) ->
         $("#dependent-options").append("<input type='radio' id='dependent_option_#{option.id}' name='question[dependent_option]' value='#{option.name}'>#{option.name}<br>")
 

@@ -29,6 +29,10 @@ class SurveyDecorator < Draper::Decorator
     h.link_to 'Add Question', h.new_survey_question_path(object), class: info_class
   end
 
+  def dependent_parent_options
+    object.questions.reject{|q| q.options.blank?}
+  end
+
   private
     def success_class
       %w(btn btn-mini btn-success)

@@ -4,7 +4,7 @@
     = f.input :description
     = f.select :qtype, QuestionDecorator.type_options_for_select
     = f.input :is_required
-    = f.input :parent_id, collection: @survey.questions.reject{|q| q.options.blank?}, value_method: :id, label_method: :description, prompt: "Please select a dependent question"
+    = f.input :parent_id, collection: @survey.dependent_parent_options, value_method: :id, label_method: :description, prompt: "Please select a dependent question"
     = f.hidden_field :survey_id
 
     #dependent-options

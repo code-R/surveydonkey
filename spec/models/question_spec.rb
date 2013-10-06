@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Question do
-  accessible_attributes = %w(description survey_id qtype option_names is_required dependent_option)
+  accessible_attributes = %w(description survey_id qtype option_names is_required dependent_option parent_id comparator)
   subject { Question.new }
   let(:user) { user = build(:user) }
 

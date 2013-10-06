@@ -13,7 +13,6 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @survey   = Survey.find params[:survey_id]
     @question = @survey.questions.build
   end
 
@@ -48,7 +47,7 @@ class QuestionsController < ApplicationController
 
   private
     def fetch_survey
-      @survey = Survey.find params[:survey_id]
+      @survey = Survey.find(params[:survey_id]).decorate
     end
 
     def fetch_question
