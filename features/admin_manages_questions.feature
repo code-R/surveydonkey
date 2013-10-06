@@ -17,13 +17,13 @@ Feature: Manage Questions on a Survey
     Given Survey has some questions added
     When I visit survey page as admin
     Then I should see list of Questions
-    And I should see edit and destroy links on a question
 
   Scenario: Admin deletes a question on a given survey
     Given Survey has some questions added
     When I visit survey page as admin
+    And I click on a question
     And I click destroy on a question
-    Then I should see "Survey was successfully destroyed."
+    Then I should see "Question was successfully destroyed."
 
   Scenario: Admin edits a question on a given survey
     Given Survey has some questions added

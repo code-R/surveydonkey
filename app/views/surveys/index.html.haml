@@ -16,7 +16,7 @@
           = survey.edit_link
           = survey.destroy_link
         - if can? :read, Response
-          = link_to 'View all responses', '#'
+          = survey.all_responses_link
 
 %br
 

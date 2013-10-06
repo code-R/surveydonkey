@@ -3,6 +3,7 @@
 
 en:
   questions:
+    NA: 'Not available'
     type:
       date: 'Date type'
       essay: 'Essay type'

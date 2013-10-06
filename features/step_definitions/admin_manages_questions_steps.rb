@@ -22,15 +22,15 @@ Then(/^I should see edit and destroy links on a question$/) do
 end
 
 When(/^I click destroy on a question$/) do
-  within "#questions-table" do
-    first(:link, 'Destroy').click
-  end
+  click_link('Destroy')
+end
+
+When(/^I click on a question$/) do
+  click_link(Question.first.description)
 end
 
 When(/^I click edit on a question$/) do
-  within "#questions-table" do
-    first(:link, 'Edit').click
-  end
+  click_link('Edit')
 end
 
 Then(/^I should go to question edit page$/) do

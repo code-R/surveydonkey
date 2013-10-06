@@ -22,6 +22,7 @@ class SurveysController < ApplicationController
 
   def show
     @survey = @survey.decorate
+    @questions = QuestionDecorator.decorate_collection(@survey.questions)
   end
 
   def new

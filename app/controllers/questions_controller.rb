@@ -44,7 +44,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
 
-    redirect_to :back, notice: 'Survey was successfully destroyed.'
+    redirect_to root_path , notice: 'Question was successfully destroyed.'
   end
 
   private
@@ -53,6 +53,6 @@ class QuestionsController < ApplicationController
     end
 
     def fetch_question
-      @question = Question.find(params[:id])
+      @question = QuestionDecorator.decorate Question.find(params[:id])
     end
 end

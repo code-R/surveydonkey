@@ -11,15 +11,10 @@
 
 - if can? :manage, Survey
   = @survey.edit_link
-  \|
   = @survey.destroy_link
-  \|
-
-= link_to 'Back', surveys_path
 
 - if can? :manage, Question
-  \|
-  = link_to 'Add Question', new_survey_question_path(@survey)
+  = @survey.add_question_link
 
   %h3 Questions
 
@@ -31,22 +26,18 @@
       %th Dependent question
       %th Dependent option
       %th Comparator
-      %th Actions
 
-    - @survey.questions.each_with_index do |question, index|
+    - @questions.each_with_index do |question, index|
       %tr
         %td
-          = "#{index + 1}) #{question.description}"
+          = question.description_with_number(index)
         %td
           = question.humanized_question_type
         %td
-          = question.is_required? ? 'Required' : 'Optional'
+          = question.required_status
         %td
-          = question.parent.try(:description)
+          = question.dependent_question
         %td
-          = question.dependent_option
+          = question.decorated_dependent_option
         %td
-          = question.comparator? ? 'IS' : 'IS NOT'
-        %td
-          = link_to 'Edit', edit_survey_question_path(@survey, question), class: %w(btn btn-mini edit-question)
-          = link_to 'Destroy', question.becomes(Question), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: %w(btn btn-mini btn-danger destroy-question)
+          = question.comparator_status

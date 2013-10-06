@@ -22,7 +22,7 @@ class Question < ActiveRecord::Base
   end
 
   def options
-
+    []
   end
 
   def humanized_question_type
