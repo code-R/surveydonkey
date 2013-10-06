@@ -24,7 +24,7 @@ describe SurveyDecorator do
 
   context "#edit_link" do
     it "should return edit link" do
-      decorated_survey.edit_link.should == "<a href=\"/surveys/#{survey.id}/edit\" class=\"btn btn-mini\">Edit</a>"
+      decorated_survey.edit_link.should == "<a href=\"/surveys/#{survey.id}/edit\" class=\"btn btn-mini btn-info\">Edit</a>"
     end
   end
 
@@ -36,7 +36,7 @@ describe SurveyDecorator do
 
   context "#participate_link" do
     it "should return participate link" do
-      decorated_survey.participate_link.should == "<a href=\"/surveys/#{survey.id}/participate\">Participate</a>"
+      decorated_survey.participate_link.should == "<a href=\"/surveys/1/participate\" class=\"btn btn-mini btn-success\">Participate</a>"
     end
   end
 end

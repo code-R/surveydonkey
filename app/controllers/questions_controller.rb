@@ -2,11 +2,10 @@ class QuestionsController < ApplicationController
   load_and_authorize_resource
 
   before_filter :fetch_survey, only: [:new, :create, :edit, :update]
-  before_filter :fetch_question, only: [:show, :edit, :destroy, :update]
+  before_filter :fetch_question, only: [:show, :edit, :destroy, :update, :options]
 
   def options
-    question = Question.find params[:id]
-    render json: question.options
+    render json: @question.options
   end
 
   def show
