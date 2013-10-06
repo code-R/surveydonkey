@@ -26,7 +26,7 @@ When(/^I visit survey edit page$/) do
 end
 
 Then(/^I should see options prefilled in the page$/) do
-  find_field(:question_option_names).value.should == "choice 1\nchoice 2\nchoice 3"
+  find_field(:question_option_names).value.should == Question.last.options.pluck(:name).join("\n")
 end
 
 Given(/^it has various options$/) do

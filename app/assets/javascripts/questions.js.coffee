@@ -7,6 +7,13 @@ $ ->
   $('#question_qtype').change ->
     showOrHideOptions($(this).val())
 
+  $('#question_parent_id').change ->
+    question_id = $(this).val()
+    if question_id
+      $.getJSON "/questions/#{question_id}/options.json", (data) ->
+        $.each data, (index, option) ->
+          $("#dependent-options").append("<input type='radio' name='question[dependent_option]' value='#{option.name}'>#{option.name}<br>")
+
 
 showOrHideOptions = (question_type) ->
   return if question_type == undefined

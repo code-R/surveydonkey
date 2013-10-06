@@ -9,6 +9,9 @@ SurveyDonkey::Application.routes.draw do
   end
 
   resources :questions, only: %w(destroy show) do
+    member do
+      get :options
+    end
     resources :responses, only: %w(new create)
   end
 

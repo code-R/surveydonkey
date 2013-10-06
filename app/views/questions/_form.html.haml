@@ -6,6 +6,8 @@
     = f.input :parent_id, collection: @survey.questions, value_method: :id, label_method: :description, prompt: "Please select a dependent question"
     = f.hidden_field :survey_id
 
+    #dependent-options
+
     #question-options.hide
       = f.input :option_names, as: 'text', hint: 'Enter each choice on a separate line.'
 

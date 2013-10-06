@@ -15,3 +15,9 @@ Then(/^I should see parent information under the question$/) do
   parent = Question.last.parent
   page.all('#questions-table tr')[4].should have_content(parent.description)
 end
+
+Then(/^I should see question options in the page$/) do
+  Question.last.options.each do |option|
+    page.should have_content(option.name)
+  end
+end

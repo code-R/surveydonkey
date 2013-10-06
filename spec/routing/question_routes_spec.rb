@@ -25,5 +25,9 @@ describe "Routes" do
     it "routes /questions/:id to questions#show http_method#get" do
       expect(get: 'questions/1').to route_to(controller: 'questions', action: 'show', id: '1')
     end
+
+    it "routes /questions/:id/options to questions#options http_method#get" do
+      expect(get: 'questions/1/options').to route_to(controller: 'questions', action: 'options', id: '1')
+    end
   end
 end
