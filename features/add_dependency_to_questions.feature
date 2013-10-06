@@ -14,10 +14,23 @@ Feature: Add dependent questions
     Given I login as admin
     And There is a survey
     And Survey has some questions added
+    And Survey has a "multiple_choice_radio_button" Question
+    And it has various options
     When I visit question new page
     And I select some question as a parent
     And I click "Create Question"
     Then I should see parent information under the question
+
+  @javascript
+  Scenario: Admin should see list of options of a question while selecting a parent quesiton
+    Given I login as admin
+    And There is a survey
+    And Survey has a "multiple_choice_radio_button" Question
+    And it has various options
+    When I visit question new page
+    And I select some question as a parent
+    Then I should see question options in the page
+
 
   @javascript
   Scenario: Allow only questions with options in parent drop down
@@ -27,4 +40,6 @@ Feature: Add dependent questions
     And it has various options
     When I visit question new page
     And I select some question as a parent
-    Then I should see question options in the page
+    And I choose an option as a dependent option
+    And I click "Create Question"
+    Then I should see depedent option information under the question

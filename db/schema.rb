@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131005090319) do
+ActiveRecord::Schema.define(:version => 20131006112430) do
 
   create_table "options", :force => true do |t|
     t.text     "name"
@@ -24,10 +24,12 @@ ActiveRecord::Schema.define(:version => 20131005090319) do
     t.text     "description"
     t.string   "type"
     t.integer  "survey_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.boolean  "is_required"
     t.string   "ancestry"
+    t.string   "dependent_option"
+    t.boolean  "comparator"
   end
 
   add_index "questions", ["ancestry"], :name => "index_questions_on_ancestry"

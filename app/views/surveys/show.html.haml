@@ -29,6 +29,8 @@
       %th Type
       %th Status
       %th Dependent question
+      %th Dependent option
+      %th Comparator
       %th Actions
 
     - @survey.questions.each_with_index do |question, index|
@@ -41,6 +43,10 @@
           = question.is_required? ? 'Required' : 'Optional'
         %td
           = question.parent.try(:description)
+        %td
+          = question.dependent_option
+        %td
+          = question.comparator? ? 'IS' : 'IS NOT'
         %td
           = link_to 'Edit', edit_survey_question_path(@survey, question), class: %w(btn btn-mini edit-question)
           = link_to 'Destroy', question.becomes(Question), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: %w(btn btn-mini btn-danger destroy-question)

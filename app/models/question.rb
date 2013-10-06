@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
   attr_accessor :option_names
 
-  attr_accessible :description, :survey_id, :qtype, :option_names, :is_required, :parent_id
+  attr_accessible :description, :survey_id, :qtype, :option_names, :is_required, :parent_id, :dependent_option
 
   TYPES = %w(date number essay multiple_choice_radio_button)
 
@@ -14,6 +14,10 @@ class Question < ActiveRecord::Base
 
   def self.model_name
     ActiveModel::Name.new(self, nil, 'question')
+  end
+
+  def options
+
   end
 
   def humanized_question_type

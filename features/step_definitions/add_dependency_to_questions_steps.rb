@@ -13,11 +13,20 @@ end
 
 Then(/^I should see parent information under the question$/) do
   parent = Question.last.parent
-  page.all('#questions-table tr')[4].should have_content(parent.description)
+  page.all('#questions-table tr')[2].should have_content(parent.description)
 end
 
 Then(/^I should see question options in the page$/) do
   Question.last.options.each do |option|
     page.should have_content(option.name)
   end
+end
+
+When(/^I choose an option as a dependent option$/) do
+  option = Option.last
+  choose("dependent_option_#{option.id}")
+end
+
+Then(/^I should see depedent option information under the question$/) do
+  page.all('#questions-table tr')[2].should have_content(Option.last.name)
 end

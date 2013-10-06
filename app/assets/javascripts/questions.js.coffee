@@ -8,11 +8,13 @@ $ ->
     showOrHideOptions($(this).val())
 
   $('#question_parent_id').change ->
+    $("#dependent-option").html('')
     question_id = $(this).val()
     if question_id
       $.getJSON "/questions/#{question_id}/options.json", (data) ->
+        $("#dependent-option").append "<input type='checkbox' value='1' name='question[is_comparator]' class='boolean optional'> comparator <br/>"
         $.each data, (index, option) ->
-          $("#dependent-options").append("<input type='radio' name='question[dependent_option]' value='#{option.name}'>#{option.name}<br>")
+          $("#dependent-options").append("<input type='radio' id='dependent_option_#{option.id}' name='question[dependent_option]' value='#{option.name}'>#{option.name}<br>")
 
 
 showOrHideOptions = (question_type) ->
