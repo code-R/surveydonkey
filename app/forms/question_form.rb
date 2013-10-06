@@ -7,7 +7,7 @@ class QuestionForm
 
   validates :answer, :question, :user, presence: true
 
-  delegate :description, :is_required?, to: :question
+  delegate :description, :is_required?, :children, to: :question
 
   def self.model_name
     ActiveModel::Name.new(self, nil, 'question_response')

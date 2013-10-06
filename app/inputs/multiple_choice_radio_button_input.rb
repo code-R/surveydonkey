@@ -6,7 +6,7 @@ class MultipleChoiceRadioButtonInput < SimpleForm::Inputs::StringInput
         options.each_with_index do |option, index|
           li do
             div do
-              span { @h.radio_button :question_response, :answer, option.name, class: 'multiple_choice_radio_button' }
+              span { @h.radio_button :question_response, :answer, option.name, class: 'multiple_choice_radio_button', id: "question_response_answer_choice_#{option.id}" }
               span option.name
             end
           end

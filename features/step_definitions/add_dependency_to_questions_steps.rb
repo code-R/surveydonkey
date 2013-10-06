@@ -36,6 +36,7 @@ Given(/^Survey has (\d+) multiple choice questions and options$/) do |number|
   3.times do
     question = create(:multiple_choice_radio_button_question, survey_id: survey.id)
     create(:option, question_id: question.id)
+    create(:option, question_id: question.id)
   end
 end
 
@@ -43,9 +44,13 @@ When(/^second question depends on first question and third question depends on s
   q1, q2, q3 = Question.all
 
   q2.parent = q1
+  q2.dependent_option = q1.options.first.name
+  q2.comparator = true
   q2.save
 
   q3.parent = q2
+  q3.dependent_option = q2.options.first.name
+  q3.comparator = false
   q3.save
 end
 

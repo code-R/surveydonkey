@@ -12,6 +12,8 @@ class ResponsesController < ApplicationController
 
   def create
     if @answer_form.submit(params)
+      dependent_questions = @answer_form.children.dependent_questions(@answer_form.answer)
+      session[:question_ids] += dependent_questions.map(&:id)
       if session[:question_ids].present?
         question_id = session[:question_ids].delete_at 0
         redirect_to new_question_response_path(question_id)

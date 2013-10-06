@@ -5,7 +5,7 @@ class SurveysController < ApplicationController
   before_filter :fetch_survey, only: %w(show edit update destroy participate)
 
   def participate
-    question_ids = @survey.questions.map(&:id)
+    question_ids = @survey.questions.where(ancestry: nil).map(&:id)
 
     if question_ids.present?
       session[:question_ids] = question_ids #move this in to memcache, instead of session

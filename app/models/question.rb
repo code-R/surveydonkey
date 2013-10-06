@@ -12,6 +12,11 @@ class Question < ActiveRecord::Base
 
   has_ancestry
 
+  scope :dependent_questions, lambda{ |answer| where(
+    '(dependent_option = ? and comparator = ?)
+    OR
+    (dependent_option != ? and comparator = ?)', answer, true, answer, false) }
+
   def self.model_name
     ActiveModel::Name.new(self, nil, 'question')
   end
