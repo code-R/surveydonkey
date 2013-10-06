@@ -6,16 +6,31 @@ Feature: Edit multiple choice questions
   Background:
     Given I login as admin
     And There is a survey
-    And Survey has a "multiple_choice_radio_button" Question
-    And it has various options
 
   @javascript
   Scenario: Admin should see options to edit
-    When I visit survey edit page
+    When Survey has a "multiple_choice_radio_button" Question
+    And it has various options
+    And I visit survey edit page
     Then I should see options prefilled in the page
 
-  Scenario: User should see radio button type input
-    When I visit survey page
+  Scenario Outline: User should see relevent input type based on question type
+    When Survey has a "<question_type>" Question
+    And "<question_type>" has various options
+    And I visit survey edit page
+    And I visit survey page
     And I click "Participate"
-    Then I should see multiple_choice_radio_button type input
+    Then I should see "<question_type>" type input for mcq
+  Examples:
+    |question_type               |
+    |multiple_choice_radio_button|
+    |multiple_choice_select      |
 
+
+  # Scenario: User should see radio button type input
+  #   When Survey has a "multiple_choice_select" Question
+  #   And it has various options
+  #   And I visit survey edit page
+  #   And I visit survey page
+  #   And I click "Participate"
+  #   Then I should see multiple_choice_select type input

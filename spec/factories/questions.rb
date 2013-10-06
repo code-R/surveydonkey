@@ -18,5 +18,9 @@ FactoryGirl.define do
     factory :multiple_choice_radio_button_question do
       qtype 'multiple_choice_radio_button'
     end
+
+    factory :multiple_choice_select_question do
+      qtype 'multiple_choice_select'
+    end
   end
 end

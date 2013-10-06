@@ -1,4 +1,4 @@
-Feature: Manage Questions on a Survey
+Feature: Adding various types of questions
   In order to maintain differnt varieties of questions in a survey
   As an Admin
   I should be able to add various types questions to a survey
@@ -20,3 +20,4 @@ Feature: Manage Questions on a Survey
     |Number|
     |Essay|
     |Multiple choice via radio button|
+    |Multiple choice via select|

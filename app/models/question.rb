@@ -3,7 +3,7 @@ class Question < ActiveRecord::Base
 
   attr_accessible :description, :survey_id, :qtype, :option_names, :is_required, :parent_id, :dependent_option, :comparator
 
-  TYPES = %w(date number essay multiple_choice_radio_button)
+  TYPES = %w(date number essay multiple_choice_radio_button multiple_choice_select)
 
   validates :description, :type, :survey_id, presence: true
 

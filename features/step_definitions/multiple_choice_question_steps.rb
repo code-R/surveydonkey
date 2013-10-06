@@ -29,11 +29,13 @@ Then(/^I should see options prefilled in the page$/) do
   find_field(:question_option_names).value.should == Question.last.options.pluck(:name).join("\n")
 end
 
-Given(/^it has various options$/) do
-  question = Question::MultipleChoiceRadioButtonType.last
+When(/^"(.*?)" has various options$/) do |question_type|
+  question_klass = "Question::#{question_type.classify}Type".constantize
+  question = question_klass.last
   3.times { create(:option, question_id: question.id) }
 end
 
-Then(/^I should see multiple_choice_radio_button type input$/) do
-  page.has_css?('.form-inputs ol li input.multiple_choice_radio_button')
+
+Then(/^I should see "(.*?)" type input for mcq$/) do |question_type|
+  page.has_css?(".form-inputs .#{question_type}")
 end

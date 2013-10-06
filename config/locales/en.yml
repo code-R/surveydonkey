@@ -9,3 +9,4 @@ en:
       essay: 'Essay type'
       number: 'Number type'
       multiple_choice_radio_button: 'Multiple choice via radio button type'
+      multiple_choice_select: 'Multiple choice via select box'
