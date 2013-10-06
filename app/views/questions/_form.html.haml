@@ -1,4 +1,5 @@
 = simple_form_for([@survey, @question]) do |f|
+  = f.error :base
   .form-inputs
     = f.input :description
     = f.select :qtype, QuestionDecorator.type_options_for_select

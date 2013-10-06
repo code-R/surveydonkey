@@ -30,3 +30,28 @@ end
 Then(/^I should see depedent option information under the question$/) do
   page.all('#questions-table tr')[2].should have_content(Option.last.name)
 end
+
+Given(/^Survey has (\d+) multiple choice questions and options$/) do |number|
+  survey = Survey.last
+  3.times do
+    question = create(:multiple_choice_radio_button_question, survey_id: survey.id)
+    create(:option, question_id: question.id)
+  end
+end
+
+When(/^second question depends on first question and third question depends on second$/) do
+  q1, q2, q3 = Question.all
+
+  q2.parent = q1
+  q2.save
+
+  q3.parent = q2
+  q3.save
+end
+
+When(/^I try to edit first question to depend on third question$/) do
+  q = Question.first
+  visit edit_survey_question_path(q.survey, q)
+
+  select(Question.last.description, :from => 'question_parent_id')
+end

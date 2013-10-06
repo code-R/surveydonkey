@@ -43,3 +43,12 @@ Feature: Add dependent questions
     And I choose an option as a dependent option
     And I click "Create Question"
     Then I should see depedent option information under the question
+
+  Scenario: Throws an error when trying to create a circular dependency
+    Given I login as admin
+    And There is a survey
+    And Survey has 3 multiple choice questions and options
+    When second question depends on first question and third question depends on second
+    And I try to edit first question to depend on third question
+    And I click "Update Question"
+    Then I should see "cannot be a descendant of itself."
