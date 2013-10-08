@@ -4,7 +4,7 @@ $ ->
   showOrHideParentOptions $('#question_parent_id').val()
 
   $('#question_qtype').change ->
-    showOrHideOptions $(this).val()
+    showOrHideQuestionsOptions $(this).val()
 
   $('#question_parent_id').change ->
     $("#dependent-options").html('')
